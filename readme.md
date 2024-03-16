@@ -1,6 +1,6 @@
 # Student Blogging Website
 
-Welcome to our Student Blogging Website Discurde! This platform allows students to share their thoughts, experiences, and knowledge through blog posts. We utilize GraphQL for efficient data querying, email and password authentication for secure user access, Express.js for server-side handling, Next.js for seamless rendering, and Tailwind CSS for stylish and responsive UI designs.
+Welcome to our Student Blogging Website CodeSpeak! This platform allows students to share their thoughts, experiences, and knowledge through blog posts. We utilize GraphQL for efficient data querying, email and password authentication for secure user access, Express.js for server-side handling, Next.js for seamless rendering, and Tailwind CSS for stylish and responsive UI designs.
 
 ## Features
 
@@ -49,12 +49,7 @@ To get started with our Student Blogging Website, follow these steps:
 
 7. **Explore**: Explore the website, sign up, create your blog posts, and enjoy sharing your thoughts with others!
 
-## Contributing
+## **Demo video**
 
-We welcome contributions from everyone. If you find any bugs or have suggestions for improvements, feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
+[<img src="./screenshot.png" width="600" height="300"
+/>](https://streamable.com/lklph2)

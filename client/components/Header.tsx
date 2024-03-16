@@ -20,7 +20,7 @@ function Header() {
         href={"/"}
         className="text-2xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text  font-extrabold hover:bg-gradient-to-l drop-shadow-md dropdown-content shadow-red-500"
       >
-        Discrude
+        CodeSpeak
       </Link>
 
       <nav className="navbar-end space-x-3 lg:space-x-5">
