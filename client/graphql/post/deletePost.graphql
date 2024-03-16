@@ -1,0 +1,16 @@
+mutation DeletePostMutation($postId: String!) {
+  DeletePost(postId: $postId) {
+    data {
+      id
+      title
+      description
+      createdAt
+      updatedAt
+      authorId
+      author {
+        name
+      }
+    }
+    msg
+  }
+}

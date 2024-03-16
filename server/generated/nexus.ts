@@ -75,6 +75,10 @@ export interface NexusGenObjects {
     title?: string | null; // String
     updatedAt?: NexusGenScalars['Date'] | null; // Date
   }
+  PostByIdResponseData: { // root type
+    data?: NexusGenRootTypes['Post'] | null; // Post
+    msg?: string | null; // String
+  }
   Query: {};
   User: { // root type
     createdAt?: string | null; // String
@@ -119,9 +123,11 @@ export interface NexusGenFieldTypes {
   }
   Mutation: { // field return type
     CreatePost: NexusGenRootTypes['CreatePostResponseData'] | null; // CreatePostResponseData
+    DeletePost: NexusGenRootTypes['CreatePostResponseData'] | null; // CreatePostResponseData
     LoginUser: NexusGenRootTypes['AuthResponseData'] | null; // AuthResponseData
     LogoutUser: NexusGenRootTypes['AuthResponseData'] | null; // AuthResponseData
     RegisterUser: NexusGenRootTypes['AuthResponseData'] | null; // AuthResponseData
+    UpdatePost: NexusGenRootTypes['CreatePostResponseData'] | null; // CreatePostResponseData
   }
   Post: { // field return type
     author: NexusGenRootTypes['Author'] | null; // Author
@@ -132,9 +138,14 @@ export interface NexusGenFieldTypes {
     title: string | null; // String
     updatedAt: NexusGenScalars['Date'] | null; // Date
   }
+  PostByIdResponseData: { // field return type
+    data: NexusGenRootTypes['Post'] | null; // Post
+    msg: string | null; // String
+  }
   Query: { // field return type
     AllPosts: NexusGenRootTypes['AllPostsResponseData'] | null; // AllPostsResponseData
     Me: NexusGenRootTypes['MeResponseData'] | null; // MeResponseData
+    PostById: NexusGenRootTypes['PostByIdResponseData'] | null; // PostByIdResponseData
   }
   User: { // field return type
     createdAt: string | null; // String
@@ -169,9 +180,11 @@ export interface NexusGenFieldTypeNames {
   }
   Mutation: { // field return type name
     CreatePost: 'CreatePostResponseData'
+    DeletePost: 'CreatePostResponseData'
     LoginUser: 'AuthResponseData'
     LogoutUser: 'AuthResponseData'
     RegisterUser: 'AuthResponseData'
+    UpdatePost: 'CreatePostResponseData'
   }
   Post: { // field return type name
     author: 'Author'
@@ -182,9 +195,14 @@ export interface NexusGenFieldTypeNames {
     title: 'String'
     updatedAt: 'Date'
   }
+  PostByIdResponseData: { // field return type name
+    data: 'Post'
+    msg: 'String'
+  }
   Query: { // field return type name
     AllPosts: 'AllPostsResponseData'
     Me: 'MeResponseData'
+    PostById: 'PostByIdResponseData'
   }
   User: { // field return type name
     createdAt: 'String'
@@ -200,6 +218,9 @@ export interface NexusGenArgTypes {
       description?: string | null; // String
       title: string; // String!
     }
+    DeletePost: { // args
+      postId: string; // String!
+    }
     LoginUser: { // args
       email: string; // String!
       password: string; // String!
@@ -209,6 +230,16 @@ export interface NexusGenArgTypes {
       loginDirectly: boolean; // Boolean!
       name: string; // String!
       password: string; // String!
+    }
+    UpdatePost: { // args
+      description?: string | null; // String
+      postId: string; // String!
+      title: string; // String!
+    }
+  }
+  Query: {
+    PostById: { // args
+      postId: string; // String!
     }
   }
 }

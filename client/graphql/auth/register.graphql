@@ -1,0 +1,17 @@
+mutation RegisterUserMutation(
+	$name: String!
+	$email: String!
+	$password: String!
+	$loginDirectly: Boolean!
+) {
+	RegisterUser(
+		name: $name
+		email: $email
+		password: $password
+		loginDirectly: $loginDirectly
+	) {
+		msg
+		fields
+		success
+	}
+}

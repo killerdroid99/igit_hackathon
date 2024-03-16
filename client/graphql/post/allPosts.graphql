@@ -1,0 +1,16 @@
+query AllPostsQuery {
+  AllPosts {
+    data {
+      id
+      title
+      description
+      createdAt
+      updatedAt
+      authorId
+      author {
+        name
+      }
+    }
+    msg
+  }
+}

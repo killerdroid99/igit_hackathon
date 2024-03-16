@@ -246,6 +246,68 @@ export const Mutations = mutationType({
           msg: "Success",
         };
       },
+    }),
+      // UPDATE POST BY ID
+      t.field("UpdatePost", {
+        type: CreatePostResponseData,
+        args: {
+          postId: nonNull(stringArg()),
+          title: nonNull(stringArg()),
+          description: nullable(stringArg()),
+        },
+        async resolve(_, { title, description, postId }, ctx: TContext) {
+          if (!ctx.req.session.userId) {
+            return {
+              msg: "No Session found",
+            };
+          }
+
+          if (title.length < 3) {
+            return {
+              msg: "Title must be atleast 3 characters long",
+            };
+          }
+
+          const newPost = await ctx.db.post.update({
+            where: {
+              id: postId,
+            },
+            data: {
+              title,
+              description,
+            },
+          });
+
+          return {
+            data: newPost,
+            msg: "Success",
+          };
+        },
+      });
+    // DELETE POST BY ID
+    t.field("DeletePost", {
+      type: CreatePostResponseData,
+      args: {
+        postId: nonNull(stringArg()),
+      },
+      async resolve(_, { postId }, ctx: TContext) {
+        if (!ctx.req.session.userId) {
+          return {
+            msg: "No Session found",
+          };
+        }
+
+        const deletedPost = await ctx.db.post.delete({
+          where: {
+            id: postId,
+          },
+        });
+
+        return {
+          data: deletedPost,
+          msg: "Success",
+        };
+      },
     });
   },
 });

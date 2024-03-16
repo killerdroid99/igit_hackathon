@@ -1,0 +1,7 @@
+mutation LogoutUserMutation {
+	LogoutUser {
+		msg
+		fields
+		success
+	}
+}

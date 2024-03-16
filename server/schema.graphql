@@ -36,9 +36,11 @@ type MeResponseData {
 
 type Mutation {
   CreatePost(description: String, title: String!): CreatePostResponseData
+  DeletePost(postId: String!): CreatePostResponseData
   LoginUser(email: String!, password: String!): AuthResponseData
   LogoutUser: AuthResponseData
   RegisterUser(email: String!, loginDirectly: Boolean!, name: String!, password: String!): AuthResponseData
+  UpdatePost(description: String, postId: String!, title: String!): CreatePostResponseData
 }
 
 type Post {
@@ -51,9 +53,15 @@ type Post {
   updatedAt: Date
 }
 
+type PostByIdResponseData {
+  data: Post
+  msg: String
+}
+
 type Query {
   AllPosts: AllPostsResponseData
   Me: MeResponseData
+  PostById(postId: String!): PostByIdResponseData
 }
 
 type User {

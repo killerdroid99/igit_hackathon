@@ -1,0 +1,16 @@
+mutation CreatePostMutation($title: String!, $description: String) {
+  CreatePost(title: $title, description: $description) {
+    data {
+      id
+      title
+      description
+      createdAt
+      updatedAt
+      authorId
+      author {
+        name
+      }
+    }
+    msg
+  }
+}

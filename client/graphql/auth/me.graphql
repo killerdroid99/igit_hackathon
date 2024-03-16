@@ -1,0 +1,8 @@
+query MeQuery {
+	Me {
+		id
+		name
+		email
+		msg
+	}
+}

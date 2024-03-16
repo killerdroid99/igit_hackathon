@@ -1,6 +1,6 @@
 # Student Blogging Website
 
-Welcome to our Student Blogging Website! This platform allows students to share their thoughts, experiences, and knowledge through blog posts. We utilize GraphQL for efficient data querying, email and password authentication for secure user access, Express.js for server-side handling, Next.js for seamless rendering, and Tailwind CSS for stylish and responsive UI designs.
+Welcome to our Student Blogging Website Discurde! This platform allows students to share their thoughts, experiences, and knowledge through blog posts. We utilize GraphQL for efficient data querying, email and password authentication for secure user access, Express.js for server-side handling, Next.js for seamless rendering, and Tailwind CSS for stylish and responsive UI designs.
 
 ## Features
 
@@ -25,25 +25,29 @@ To get started with our Student Blogging Website, follow these steps:
 1. **Clone the Repository**: Clone this repository to your local machine.
 
    ```bash
-   git clone https://github.com/your-username/student-blogging-website.git
+   git clone https://github.com/killerdroid99/igit_hackathon.git
    ```
 
-2. **Install Dependencies**: Navigate into the cloned directory and install the necessary dependencies.
+2. **Install Dependencies**: Navigate into the cloned directory and install the necessary dependencies for client and server directories.
 
    ```bash
    cd student-blogging-website
-   npm install
+   pnpm install
    ```
 
-3. **Set Up Environment Variables**: Set up your environment variables for authentication and other configurations.
+3. **Configure Databases**: Set up your Postgres and Redis database instances locally or using Docker.
 
-4. **Run the Application**: Start the development server.
+4. **Configure Prisma**: Configure your postgres db by using `pnpx prisma db push` to reflect the models in `schema.prisma` file to your database instance.
+
+5. **Set Up Environment Variables**: Set up your environment variables other configurations.
+
+6. **Run the Application**: Start the development server.
 
    ```bash
-   npm run dev
+   pnpm dev
    ```
 
-5. **Explore**: Explore the website, sign up, create your blog posts, and enjoy sharing your thoughts with others!
+7. **Explore**: Explore the website, sign up, create your blog posts, and enjoy sharing your thoughts with others!
 
 ## Contributing
 
@@ -54,4 +58,3 @@ We welcome contributions from everyone. If you find any bugs or have suggestions
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-

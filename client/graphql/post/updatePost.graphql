@@ -1,0 +1,20 @@
+mutation UpdatePostMutation(
+  $postId: String!
+  $title: String!
+  $description: String
+) {
+  UpdatePost(postId: $postId, title: $title, description: $description) {
+    data {
+      id
+      title
+      description
+      createdAt
+      updatedAt
+      authorId
+      author {
+        name
+      }
+    }
+    msg
+  }
+}

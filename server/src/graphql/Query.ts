@@ -1,6 +1,6 @@
-import { queryType } from "nexus";
+import { nonNull, queryType, stringArg } from "nexus";
 import { TContext } from "^/utils/serverTypes";
-import { MeResponseData } from ".";
+import { MeResponseData, PostByIdResponseData } from ".";
 import { AllPostsResponseData } from ".";
 
 export const UserQueries = queryType({
@@ -47,6 +47,32 @@ export const UserQueries = queryType({
           return {
             msg: "Success",
             data: allPosts,
+          };
+        },
+      }),
+      // POST BY ID
+      t.field("PostById", {
+        type: PostByIdResponseData,
+        args: {
+          postId: nonNull(stringArg()),
+        },
+        async resolve(_, { postId }, ctx: TContext) {
+          const postById = await ctx.db.post.findUnique({
+            where: {
+              id: postId,
+            },
+            include: {
+              author: {
+                select: {
+                  name: true,
+                },
+              },
+            },
+          });
+
+          return {
+            msg: "Success",
+            data: postById,
           };
         },
       });

@@ -32,6 +32,16 @@ export const AllPostsResponseData = objectType({
   },
 });
 
+export const PostByIdResponseData = objectType({
+  name: "PostByIdResponseData",
+  definition(t) {
+    t.field("data", {
+      type: Post,
+    });
+    t.string("msg");
+  },
+});
+
 export const CreatePostResponseData = objectType({
   name: "CreatePostResponseData",
   definition(t) {
