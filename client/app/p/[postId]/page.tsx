@@ -1,16 +1,27 @@
 "use client";
 import { swrSDK } from "@/utils";
 import MDEditor from "@uiw/react-md-editor";
-import { format } from "date-fns";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Suspense } from "react";
 
 export default function PostPage({ params }: { params: { postId: string } }) {
-  const { usePostByIdQuery, useMeQuery } = swrSDK;
+  const { usePostByIdQuery, useMeQuery, DeletePostMutation } = swrSDK;
   const { data: authData } = useMeQuery("me-query");
+  const router = useRouter();
   const { data } = usePostByIdQuery("postById-query", {
     postId: params.postId,
   });
+
+  async function deletePost() {
+    const reply = window.confirm("Are you sure you want to delete this post?");
+    if (reply) {
+      const { DeletePost } = await DeletePostMutation({
+        postId: params.postId,
+      });
+      router.push("/");
+    }
+  }
   return (
     <main>
       <Suspense fallback={<p className="animate-pulse">Loading Post...</p>}>
@@ -32,7 +43,10 @@ export default function PostPage({ params }: { params: { postId: string } }) {
                 >
                   Edit
                 </Link>
-                <button className="btn btn-error btn-outline btn-sm">
+                <button
+                  onClick={deletePost}
+                  className="btn btn-error btn-outline btn-sm"
+                >
                   Delete
                 </button>
               </div>

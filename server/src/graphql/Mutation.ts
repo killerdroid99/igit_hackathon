@@ -297,6 +297,18 @@ export const Mutations = mutationType({
           };
         }
 
+        const postById = await ctx.db.post.findUnique({
+          where: {
+            id: postId,
+          },
+        });
+
+        if (ctx.req.session.userId !== postById?.authorId) {
+          return {
+            msg: "Unauthorized",
+          };
+        }
+
         const deletedPost = await ctx.db.post.delete({
           where: {
             id: postId,
