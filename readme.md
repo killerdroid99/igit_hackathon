@@ -52,4 +52,4 @@ To get started with our Student Blogging Website, follow these steps:
 ## **Demo video**
 
 [<img src="./screenshot.png" width="600" height="300"
-/>](https://streamable.com/lklph2)
+/>](https://youtu.be/GemzULxyAiQ?si=O617yN5zxq5C2-30)
