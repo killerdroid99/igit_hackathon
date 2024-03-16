@@ -1,0 +1,11 @@
+overwrite: true
+generates:
+  sdk.ts:
+    schema: 'http://localhost:4000/graphql'
+    documents: './graphql/**/*.graphql'
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+      - plugin-typescript-swr
+
